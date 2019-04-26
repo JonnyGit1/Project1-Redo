@@ -17,7 +17,7 @@ public class TodoDaoImpl implements TodoDao {
 	public List<Todo> getAllTodosByUsername(String username) {
 		List<Todo> todos = new ArrayList<>();
 		try (Connection conn = ConnectionFactory.getConnection()) {
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM jonathan.todos WHERE username = ?");
+			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM todos WHERE username = ?");
 			stmt.setString(1, username);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) 
