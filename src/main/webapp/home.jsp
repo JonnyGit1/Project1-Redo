@@ -32,7 +32,9 @@
 	</thead>
 	<tbody id="todoTable"></tbody>
 </table>
-<script>window.onload = () => {
+
+<script>
+window.onload = () => {
 	populateTodosTable();
 }
 
