@@ -3,35 +3,90 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome Home!</title>
+<title>Reimbursement Portal!</title>
+<style>
+
+body
+{
+background-color: grey;
+text-align:center;
+
+}
+div
+   {
+    background-color: rgba(34, 114, 180, 0.514);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(28, 32, 37);
+   
+            position: relative;
+            top: 30%;
+            display: inline-block 
+    }
+ 
+ 
+table, td, th 
+{
+ border: 1px solid black;
+}
+
+table 
+{
+ border-collapse: collapse;
+ width: 100%;
+}
+
+th 
+{
+ text-align: left;
+}
+
+
+    #t
+    {
+    
+     position: relative;
+            top: 30%;
+            display: inline-block 
+    }
+    
+  </style>
 </head>
+
 <body>
 
-<h2>Getcha todos done, <%= session.getAttribute("currentUser") %>!</h2>
+<h2>Would you like a Reimbursement, <%= session.getAttribute("currentUser") %>?</h2>
 
-
+<div class="container">
+<fieldset>
 <form action="/Devops_Example/api/todos" method="POST">
 	
-	<label for="title">Title</label>
+	<label for="title">Amount</label>
 	<input type="text" name="title"><br>
 	<label for="description">Description</label>
 	<input type="text" name="description"> <br>
-	<input type="submit" value="Add Todo To List!">
+	<input type="submit" value="Submit Request">
 	
-
 </form>
+</fieldset>
+</div>
 
 
+<p style="color:white;">Here is a list of your current requests, <%= session.getAttribute("currentUser") %>.</p>
+
+
+<div>
 <table>
 	<thead>
 		<tr>
-			<th>ID</th>
-			<th>Title</th>
+			<th>Request ID</th>
+			<th>Amount</th>
 			<th>Description</th>
 		</tr>
 	</thead>
 	<tbody id="todoTable"></tbody>
 </table>
+</div>
+
 
 <script>
 window.onload = () => {
